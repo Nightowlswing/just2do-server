@@ -48,10 +48,8 @@ from rest_framework.authtoken.models import Token
 
 class UserTodos(APIView):
     def get(self, request,format=None):
-        print(request.user)
         todos = Todo.objects.filter(user = request.user)
         serializer = TodoSerializer(todos, many=True)
-        print(serializer)
         return Response(serializer.data)
 
 class AddTodo(APIView):
