@@ -57,11 +57,11 @@ class UserTodos(APIView):
 class AddTodo(APIView):
     def post(self, request, format=None):
         serializer = TodoSerializer(data=request.data)
-        user = User.objects.filter(username = request.user)
         if serializer.is_valid():
-            serializer.save(user = user)
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
+            serializer.save(user = request.user)
+            return Response(status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 class EditTodo(APIView):
     def get_object(self, pk):
