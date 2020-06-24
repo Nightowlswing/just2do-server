@@ -50,8 +50,8 @@ class UserTodos(APIView):
     def get(self, request,format=None):
         print(request.user)
         todos = Todo.objects.filter(user = request.user)
-        print(todos)
         serializer = TodoSerializer(todos, many=True)
+        print(serializer)
         return Response(serializer.data)
 
 class AddTodo(APIView):
