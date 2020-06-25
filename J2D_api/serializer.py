@@ -7,7 +7,7 @@ class TodoSerializer(serializers.ModelSerializer):
     # index = serializers.ReadOnlyField(source='todo.index')
     class Meta:
         model = Todo
-        fields = ['id','description', 'day', 'user']
+        fields = ['id','description', 'day', 'user', 'status']
 
 class UserSerializer(serializers.ModelSerializer):
     todos = serializers.PrimaryKeyRelatedField(many=True, queryset=Todo.objects.all())
