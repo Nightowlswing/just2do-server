@@ -13,8 +13,10 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) 
+DB_HOST = os.environ['DATABASE_HOST']
+DB_NAME = os.environ['DATABASE_NAME']
+DB_PASSWORD = os.environ['DATABASE_PASSWORD']
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -92,10 +94,10 @@ REST_FRAMEWORK = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'zIy0iKWLxJ',
-        'USER': 'zIy0iKWLxJ',
-        'PASSWORD': 'wcCiHy0wy6',
-        'HOST': 'remotemysql.com',
+        'NAME': DB_NAME,
+        'USER': DB_NAME,
+        'PASSWORD': DB_PASSWORD,
+        'HOST': DB_HOST,
         'PORT': '',
     }
 }
